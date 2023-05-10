@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="loginForm">
     <h2>Registro de doctores</h2>
 
     <label for="nombre">Nombre:</label>
@@ -23,5 +23,5 @@
     <label for="correo">Correo de contacto:</label>
     <input type="email" id="correo" name="correo" required>
 
-    <button type="submit">Enviar</button>
+    <button class="btn btn-danger" type="submit">Enviar</button>
 </form>
