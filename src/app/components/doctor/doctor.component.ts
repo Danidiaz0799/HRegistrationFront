@@ -1,3 +1,4 @@
+import { DoctorServiceService } from 'src/app/services/doctor-service.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,16 +12,34 @@ export class DoctorComponent {
 
   loginForm! : FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router){}
+  constructor(private fb: FormBuilder, private auth: DoctorServiceService, private router: Router){}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      especialidad: ['', Validators.required],
-      consultorio: ['', Validators.required],
-      correo: ['', Validators.required]
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      specialties: ['', Validators.required],
+      consultingRoom: ['', Validators.required],
+      email: ['', Validators.required]
     })
   }
 
+  sendDoctor(): void {
+    if(this.loginForm.valid){
+
+      console.log(this.loginForm.value);
+      this.auth.postDoctor(this.loginForm.value).subscribe({
+        next:(res)=>{
+          console.log(res.message);
+          alert(res.message);
+        },
+        error:(err) =>{
+          alert(err?.error.message);
+        }
+      })
+    }
+    else{
+      console.log("Form is not value");
+    }
+  }
 }

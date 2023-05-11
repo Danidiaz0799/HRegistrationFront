@@ -1,27 +1,22 @@
 <form [formGroup]="loginForm">
     <h2>Registro de doctores</h2>
 
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <label for="name">name:</label>
+    <input input formControlName="name" type="text" id="name" name="name" required>
 
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" name="apellido" required>
+    <label for="lastName">lastName:</label>
+    <input input formControlName="lastName" type="text" id="lastName" name="lastName" required>
 
-    <label for="especialidad">Especialidad:</label>
-    <select id="especialidad" name="especialidad" required>
-        <option value="">Seleccione una opción</option>
-        <option value="medicina general">Medicina General</option>
-        <option value="pediatría">Pediatría</option>
-        <option value="ginecología">Ginecología</option>
-        <option value="dermatología">Dermatología</option>
-        <!-- agregar más opciones de especialidad si es necesario -->
-    </select>
+    <label for="specialties">specialties:</label>
+    <input input formControlName="specialties" type="text" id="specialties" name="specialties" required>
 
-    <label for="consultorio">Consultorio:</label>
-    <input type="text" id="consultorio" name="consultorio" required>
+    <label for="consultingRoom">consultingRoom:</label>
+    <input input formControlName="consultingRoom" type="text" id="consultingRoom" name="consultingRoom" required>
 
-    <label for="correo">Correo de contacto:</label>
-    <input type="email" id="correo" name="correo" required>
+    <label for="email">email de contacto:</label>
+    <input input formControlName="email" type="email" id="email" name="email" required>
 
-    <button class="btn btn-danger" type="submit">Enviar</button>
+    <button (click)="sendDoctor()" class="btn btn-danger" type="submit">Enviar</button>
 </form>
+
+
