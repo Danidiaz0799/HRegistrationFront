@@ -1,0 +1,34 @@
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+}
+
+.card-text {
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.link-info {
+    color: #17a2b8;
+}
+
+.link-info:hover {
+    color: #117a8b;
+    text-decoration: none;
+}
