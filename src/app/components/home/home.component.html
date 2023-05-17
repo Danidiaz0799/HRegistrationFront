@@ -50,7 +50,21 @@
         </div>
 
         <div class="col-lg-3" >
-            <h1>Appointments</h1>
+            <h1>Patients</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doctor of doctors">
+                        <td> {{doctor.name}} </td>
+                        <td> {{doctor.email}} </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
