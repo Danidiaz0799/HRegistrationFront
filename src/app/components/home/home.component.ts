@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { tap } from 'rxjs';
-import { Doctor } from 'src/app/models/doctor.model';
+import { Component, Type } from '@angular/core';
+import { Observable, forkJoin, tap } from 'rxjs';
+import { Doctor } from 'src/app/models/doctor.interface';
+import { Patient } from 'src/app/models/patient.interface';
 import { DoctorServiceService } from 'src/app/services/doctor-service.service';
+import { PatientServiceService } from 'src/app/services/patient-service.service';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +12,18 @@ import { DoctorServiceService } from 'src/app/services/doctor-service.service';
 })
 export class HomeComponent {
 
-  constructor(public service: DoctorServiceService){}
+  constructor(public doctorService:DoctorServiceService, public patientService: PatientServiceService){}
 
-  doctors: Doctor[] = [];
+  patientsDoctors: Observable<any[]> = new Observable<any[]>();
+
+  patients$: Observable<Patient[]> = new Observable<Patient[]>();
+  doctors$: Observable<Doctor[]> = new Observable<Doctor[]>();
 
   ngOnInit() {
+    this.patients$ = this.patientService.getPatients();
+    this.doctors$ = this.doctorService.getDoctors();
+    this.patientsDoctors = forkJoin([this.doctors$, this.patients$]);
+
   }
 
-  getDoctors() {
-    this.service?.getDoctors().pipe(tap((response)=>{ this.doctors = response;console.log(this.doctors)})).subscribe()
-
-  }
 }
