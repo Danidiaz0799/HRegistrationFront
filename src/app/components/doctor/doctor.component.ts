@@ -32,6 +32,7 @@ export class DoctorComponent {
         next:(res)=>{
           console.log(res.message);
           alert(res.message);
+          this.router.navigate(['/home']);
         },
         error:(err) =>{
           alert(err?.error.message);

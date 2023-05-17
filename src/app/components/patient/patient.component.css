@@ -1,0 +1,15 @@
+.container {
+    margin-top: 50px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+}

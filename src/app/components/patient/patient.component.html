@@ -1,20 +1,38 @@
-<form>
-    <h2>Registro de pacientes</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <form>
+                <h2 class="text-center">Registro de pacientes</h2>
 
-    <label for="nameP">name:</label>
-    <input type="text" id="nameP" name="namep" required>
+                <div class="form-group">
+                    <label for="nameP">Nombre:</label>
+                    <input type="text" id="nameP" name="nameP" class="form-control" required>
+                </div>
 
-    <label for="cedulaP">Número de cédula:</label>
-    <input type="text" id="cedulaP" name="cedulaP" required>
+                <div class="form-group">
+                    <label for="cedulaP">Número de cédula:</label>
+                    <input type="text" id="cedulaP" name="cedulaP" class="form-control" required>
+                </div>
 
-    <label for="lastNameP">lastName:</label>
-    <input type="text" id="lastNameP" name="lastNameP" required>
+                <div class="form-group">
+                    <label for="lastNameP">Apellido:</label>
+                    <input type="text" id="lastNameP" name="lastNameP" class="form-control" required>
+                </div>
 
-    <label for="edadP">Edad:</label>
-    <input type="number" id="edadP" name="edadP" required>
+                <div class="form-group">
+                    <label for="edadP">Edad:</label>
+                    <input type="number" id="edadP" name="edadP" class="form-control" required>
+                </div>
 
-    <label for="telefonoP">Teléfono:</label>
-    <input type="tel" id="telefonoP" name="telefonoP" required>
+                <div class="form-group">
+                    <label for="telefonoP">Teléfono:</label>
+                    <input type="tel" id="telefonoP" name="telefonoP" class="form-control" required>
+                </div>
 
-    <button class="btn btn-danger" type="submit">Enviar</button>
-</form>
+                <div class="text-center">
+                    <button class="btn btn-danger" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

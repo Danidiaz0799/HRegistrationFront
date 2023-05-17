@@ -1,22 +1,39 @@
-<form [formGroup]="loginForm">
-    <h2>Registro de doctores</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <form [formGroup]="loginForm">
+                <h2 class="text-center">Registro de doctores</h2>
 
-    <label for="name">name:</label>
-    <input input formControlName="name" type="text" id="name" name="name" required>
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input formControlName="name" type="text" id="name" name="name" class="form-control" required>
+                </div>
 
-    <label for="lastName">lastName:</label>
-    <input input formControlName="lastName" type="text" id="lastName" name="lastName" required>
+                <div class="form-group">
+                    <label for="lastName">Apellido:</label>
+                    <input formControlName="lastName" type="text" id="lastName" name="lastName" class="form-control" required>
+                </div>
 
-    <label for="specialties">specialties:</label>
-    <input input formControlName="specialties" type="text" id="specialties" name="specialties" required>
+                <div class="form-group">
+                    <label for="specialties">Especialidades:</label>
+                    <input formControlName="specialties" type="text" id="specialties" name="specialties" class="form-control" required>
+                </div>
 
-    <label for="consultingRoom">consultingRoom:</label>
-    <input input formControlName="consultingRoom" type="text" id="consultingRoom" name="consultingRoom" required>
+                <div class="form-group">
+                    <label for="consultingRoom">Consultorio:</label>
+                    <input formControlName="consultingRoom" type="text" id="consultingRoom" name="consultingRoom" class="form-control" required>
+                </div>
 
-    <label for="email">email de contacto:</label>
-    <input input formControlName="email" type="email" id="email" name="email" required>
+                <div class="form-group">
+                    <label for="email">Email de contacto:</label>
+                    <input formControlName="email" type="email" id="email" name="email" class="form-control" required>
+                </div>
 
-    <button (click)="sendDoctor()" class="btn btn-danger" type="submit">Enviar</button>
-</form>
-
-
+                <div class="text-center">
+                    <button (click)="sendDoctor()" class="btn btn-primary" type="submit">Enviar</button>
+                    <button class="btn btn-danger" type="submit">Atrás</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

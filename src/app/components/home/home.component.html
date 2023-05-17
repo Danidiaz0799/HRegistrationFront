@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-3" >
+            <h1>Doctors</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doctor of doctors">
+                        <td> {{doctor.name}} </td>
+                        <td> {{doctor.email}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="text-center">
+                <h3>HRegistrationApp</h3>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Doctors</h5>
+                    <p class="card-text">Register here to join our team of doctors.</p>
+                    <a routerLink="/doctors" class="btn btn-primary">Register</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Patients</h5>
+                    <p class="card-text">Register here to become our valued patient.</p>
+                    <a routerLink="/patients" class="btn btn-primary">Register</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Appointments</h5>
+                    <p class="card-text">Schedule your appointment with our doctors.</p>
+                    <a routerLink="/appointments" class="btn btn-primary">Schedule</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3" >
+            <h1>Patients</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doctor of doctors">
+                        <td> {{doctor.name}} </td>
+                        <td> {{doctor.email}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
