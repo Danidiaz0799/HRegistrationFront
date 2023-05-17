@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class DoctorComponent {
 
-  loginForm! : FormGroup;
+  doctorForm! : FormGroup;
 
   constructor(private fb: FormBuilder, private auth: DoctorServiceService, private router: Router){}
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
+    this.doctorForm = this.fb.group({
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       specialties: ['', Validators.required],
@@ -25,10 +25,10 @@ export class DoctorComponent {
   }
 
   sendDoctor(): void {
-    if(this.loginForm.valid){
+    if(this.doctorForm.valid){
 
-      console.log(this.loginForm.value);
-      this.auth.postDoctor(this.loginForm.value).subscribe({
+      console.log(this.doctorForm.value);
+      this.auth.postDoctor(this.doctorForm.value).subscribe({
         next:(res)=>{
           console.log(res.message);
           alert(res.message);

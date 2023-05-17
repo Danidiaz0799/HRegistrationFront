@@ -1,36 +1,36 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-6">
-            <form>
+            <form [formGroup]="patientForm">
                 <h2 class="text-center">Registro de pacientes</h2>
 
                 <div class="form-group">
                     <label for="nameP">Nombre:</label>
-                    <input type="text" id="nameP" name="nameP" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="cedulaP">Número de cédula:</label>
-                    <input type="text" id="cedulaP" name="cedulaP" class="form-control" required>
+                    <input formControlName="name" type="text" id="nameP" name="nameP" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="lastNameP">Apellido:</label>
-                    <input type="text" id="lastNameP" name="lastNameP" class="form-control" required>
+                    <input formControlName="lastName" type="text" id="lastNameP" name="lastNameP" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cedulaP">Número de cédula:</label>
+                    <input formControlName="identification" type="text" id="cedulaP" name="cedulaP" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="edadP">Edad:</label>
-                    <input type="number" id="edadP" name="edadP" class="form-control" required>
+                    <input formControlName="age" type="number" id="edadP" name="edadP" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="telefonoP">Teléfono:</label>
-                    <input type="tel" id="telefonoP" name="telefonoP" class="form-control" required>
+                    <input formControlName="phone" type="tel" id="telefonoP" name="telefonoP" class="form-control" required>
                 </div>
 
                 <div class="text-center">
-                    <button class="btn btn-danger" type="submit">Enviar</button>
+                    <button (click)="sendPatient()" class="btn btn-danger" type="submit">Enviar</button>
                 </div>
             </form>
         </div>
