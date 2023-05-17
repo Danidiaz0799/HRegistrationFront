@@ -1,19 +1,19 @@
 <div class="container">
-    <div class="row">
+    <div *ngIf="(patientsDoctors | async) as datosCombinados" class="row">
 
         <div class="col-lg-3" >
             <h1>Doctors</h1>
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr >
                         <th>Nombre</th>
-                        <th>Email</th>
+                        <th>Especialidad</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let doctor of doctors">
+                    <tr *ngFor="let doctor of datosCombinados[0]">
                         <td> {{doctor.name}} </td>
-                        <td> {{doctor.email}} </td>
+                        <td> {{doctor.specialties}} </td>
                     </tr>
                 </tbody>
             </table>
@@ -55,13 +55,13 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Email</th>
+                        <th>Identificacion</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let doctor of doctors">
-                        <td> {{doctor.name}} </td>
-                        <td> {{doctor.email}} </td>
+                    <tr *ngFor="let patient of datosCombinados[1]">
+                        <td> {{patient.name}} </td>
+                        <td> {{patient.identification}} </td>
                     </tr>
                 </tbody>
             </table>
