@@ -16,7 +16,17 @@
 
                 <div class="form-group">
                     <label for="specialties">Especialidades:</label>
-                    <input formControlName="specialties" type="text" id="specialties" name="specialties" class="form-control" required>
+                    <select formControlName="specialties" id="specialties" name="specialties" class="form-control" required>
+                        <option value="">Selecciona una especialidad</option>
+                        <option value="General medicine">General medicine</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Internal Medicine">Internal Medicine</option>
+                        <option value="Dermatology">Dermatology</option>
+                        <option value="Physical rehabilitation">Physical rehabilitation</option>
+                        <option value="Psychology">Psychology</option>
+                        <option value="Odontology">Odontology</option>
+                        <option value="Radiology">Radiology</option>
+                    </select>
                 </div>
 
                 <div class="form-group">

@@ -12,7 +12,7 @@ export class DoctorComponent {
 
   doctorForm! : FormGroup;
 
-  constructor(private fb: FormBuilder, private auth: DoctorServiceService, private router: Router){}
+  constructor(private fb: FormBuilder, private doctorService: DoctorServiceService, private router: Router){}
 
   ngOnInit(): void {
     this.doctorForm = this.fb.group({
@@ -28,7 +28,7 @@ export class DoctorComponent {
     if(this.doctorForm.valid){
 
       console.log(this.doctorForm.value);
-      this.auth.postDoctor(this.doctorForm.value).subscribe({
+      this.doctorService.postDoctor(this.doctorForm.value).subscribe({
         next:(res)=>{
           console.log(res.message);
           alert(res.message);
