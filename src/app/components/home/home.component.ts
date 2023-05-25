@@ -20,10 +20,43 @@ export class HomeComponent {
   doctors$: Observable<Doctor[]> = new Observable<Doctor[]>();
 
   ngOnInit() {
-    this.patients$ = this.patientService.getPatients();
-    this.doctors$ = this.doctorService.getDoctors();
-    this.patientsDoctors = forkJoin([this.doctors$, this.patients$]);
+    this.loadPatientsAndDoctors();
+  }
 
+  loadPatientsAndDoctors(): void {
+    const doctors$ = this.doctorService.getDoctors();
+    const patients$ = this.patientService.getPatients();
+    this.patientsDoctors = forkJoin([doctors$, patients$]);
+  }
+
+  deleteDoctor(id: string): void {
+    if (confirm("Are you sure you want to delete this doctor?")) {
+      this.doctorService.deleteDoctor(id).subscribe({
+        next: (res) => {
+          console.log(res.message);
+          alert(res.message);
+          this.loadPatientsAndDoctors(); // Vuelve a cargar los datos después de eliminar el doctor
+        },
+        error: (err) => {
+          alert(err?.error.message);
+        }
+      });
+    }
+  }
+
+  deletePatient(id: string): void {
+    if (confirm("Are you sure you want to delete this patient?")) {
+      this.patientService.deletePatient(id).subscribe({
+        next: (res) => {
+          console.log(res.message);
+          alert(res.message);
+          this.loadPatientsAndDoctors(); // Vuelve a cargar los datos después de eliminar el paciente
+        },
+        error: (err) => {
+          alert(err?.error.message);
+        }
+      });
+    }
   }
 
 }
