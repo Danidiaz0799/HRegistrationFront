@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DoctorServiceService {
 
-  private baseUrl: string = "https://nodehospital.fly.dev/api/doctors";
+  private baseUrl: string = "https://nodehospital.fly.dev/api/doctors/";
 
   constructor(private http: HttpClient) { }
 
