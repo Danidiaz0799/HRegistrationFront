@@ -11,7 +11,7 @@
 
                 <div class="form-group">
                     <label for="especialidadC">Especialidad:</label>
-                    <select id="especialidadC" name="especialidadC" class="form-control" required>
+                    <select id="especialidadC" name="especialidadC" class="form-control" #specialtieSelect required>
                         <option value="">Selecciona una especialidad</option>
                         <option value="General medicine">General medicine</option>
                         <option value="Cardiology">Cardiology</option>
@@ -21,6 +21,15 @@
                         <option value="Psychology">Psychology</option>
                         <option value="Odontology">Odontology</option>
                         <option value="Radiology">Radiology</option>
+                    </select>
+                </div>
+                <button (click)="getDoctorsBySpecialtie(specialtieSelect.value)">Obtener Doctores</button>
+
+                <div class="form-group">
+                    <label for="doctorsBySpecialtie">Doctor:</label>
+                    <select id="doctorsBySpecialtie" name="doctorsBySpecialtie" class="form-control" required>
+                        <option value="">Selecciona un doctor</option>
+                        <option *ngFor="let doctor of doctors$ | async" [value]="doctor._id">{{ doctor.name }}</option>
                     </select>
                 </div>
 

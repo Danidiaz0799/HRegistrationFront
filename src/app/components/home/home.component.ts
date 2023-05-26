@@ -1,5 +1,5 @@
-import { Component, Type } from '@angular/core';
-import { Observable, forkJoin, tap } from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable, forkJoin } from 'rxjs';
 import { Doctor } from 'src/app/models/doctor.interface';
 import { Patient } from 'src/app/models/patient.interface';
 import { DoctorServiceService } from 'src/app/services/doctor-service.service';
@@ -11,13 +11,11 @@ import { PatientServiceService } from 'src/app/services/patient-service.service'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
-  constructor(public doctorService:DoctorServiceService, public patientService: PatientServiceService){}
-
   patientsDoctors: Observable<any[]> = new Observable<any[]>();
-
   patients$: Observable<Patient[]> = new Observable<Patient[]>();
   doctors$: Observable<Doctor[]> = new Observable<Doctor[]>();
+
+  constructor(public doctorService: DoctorServiceService, public patientService: PatientServiceService) { }
 
   ngOnInit() {
     this.loadPatientsAndDoctors();
@@ -44,6 +42,8 @@ export class HomeComponent {
     }
   }
 
+  
+
   deletePatient(id: string): void {
     if (confirm("Are you sure you want to delete this patient?")) {
       this.patientService.deletePatient(id).subscribe({
@@ -58,5 +58,5 @@ export class HomeComponent {
       });
     }
   }
-
 }
+

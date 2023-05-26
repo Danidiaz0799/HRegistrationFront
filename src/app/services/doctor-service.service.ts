@@ -28,4 +28,10 @@ export class DoctorServiceService {
     const url = `${this.baseUrl}${id}`;
     return this.http.delete<any>(url);
   }
+
+  getDoctorsBySpecialtie(Specialtie: string): Observable<any> {
+    const url = `${this.baseUrl}${Specialtie}`;
+    return this.http.get<any>(url);
+  }
+
 }
