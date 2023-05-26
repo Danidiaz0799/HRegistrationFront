@@ -11,18 +11,25 @@ import { PatientServiceService } from 'src/app/services/patient-service.service'
 })
 export class AppointmentComponent {
 
-  doctors$: Observable<Doctor[]> = new Observable<Doctor[]>();
+  doctors$: Observable<Doctor[]> | null = null;
+  selectedSpecialtie: string = "";
 
   constructor(public doctorService: DoctorServiceService, public patientService: PatientServiceService) { }
 
   ngOnInit() {
-    this.getDoctorsBySpecialtie("General medicine");
   }
 
-  getDoctorsBySpecialtie(Specialtie: string): void {
-    this.doctorService.getDoctorsBySpecialtie(Specialtie).subscribe(
+  onSpecialtieSelected(value: string): void {
+    this.selectedSpecialtie = value;
+    this.getDoctorsBySpecialtie(this.selectedSpecialtie);
+  }
+
+  getDoctorsBySpecialtie(specialtie: string): void {
+    console.log('Selected Specialtie:', specialtie);
+
+    this.doctorService.getDoctorsBySpecialtie(specialtie).subscribe(
       (doctors: Doctor[]) => {
-        console.log('Doctores:', doctors); // Agregar console.log para mostrar los doctores
+        console.log('Doctores:', doctors);
         this.doctors$ = new Observable<Doctor[]>(observer => {
           observer.next(doctors);
           observer.complete();
@@ -33,5 +40,6 @@ export class AppointmentComponent {
       }
     );
   }
+
 
 }
