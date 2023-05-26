@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PatientServiceService {
-  private baseUrl:string = "http://localhost:3001/api/patients/";
+  private baseUrl:string = "https://nodehospital.fly.dev/api/patients/";
   constructor(private http: HttpClient) { }
 
   getPatients(): Observable<any>{
